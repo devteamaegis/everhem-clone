@@ -364,6 +364,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <div className="w-[21.1094px] h-2.5 block absolute -top-[6249.9375rem] -left-[6249.9375rem] min-w-0 text-[0.6875rem] leading-[0.6875rem] whitespace-nowrap">
           Mgy
         </div>
+        <script src="/cloned-interactions.js" defer />
       </body>
     </html>
   );

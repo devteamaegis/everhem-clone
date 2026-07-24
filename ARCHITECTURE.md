@@ -63,3 +63,28 @@ Recipes identify higher-level patterns such as repeated cards, logo clouds, navi
 ## Tradeoffs
 
 The clone prioritizes deterministic static fidelity, accessible markup, local asset materialization, and source metadata preservation. It may keep measured CSS where inferred layout intent is uncertain. It intentionally defers arbitrary JavaScript replay, video-like animation replay, and full third-party application behavior. External services, live personalization, analytics, payments, auth, and complex client app state are not reconstructed unless a specific safe recipe exists.
+
+---
+
+## Hand-authored fidelity layer (applied on top of raw Ditto output)
+
+The raw clone was audited page-by-page against the live site at 1440px (see `docs/everhem-clone-audit.pdf`). Three **systemic** defects were fixed at the root, plus several per-section image-sizing fixes:
+
+### Systemic (each fixed once, resolved many pages)
+1. **Scroll-hijack un-clamp** — `globals.css` `body.cn0` override. The live theme pins `html`/`body` to one viewport and scrolls `body` internally via JS; Ditto captured that clamp and only un-clamped it at ≥1601px, freezing the built page at ~800px below that. Native document scroll is restored at all breakpoints.
+2. **Wide-viewport completeness** — the raw output tagged every element `2xl:hidden` with no ≥1536px layer, so the page went blank on 1080p+ monitors. Stripped `2xl:hidden` from the audit-set pages and their components (2078 tokens); the desktop layout now renders at every width. No effect below 1536px.
+3. **Fluid container grid** — `grid-cols-[20px_1240px_20px]` (fixed 1280px, left-packed) → `grid-cols-[minmax(20px,1fr)_minmax(0,1400px)_minmax(20px,1fr)]`. Reproduces the live responsive behaviour (20px gutters at 1440, `260px 1400px 260px` at 1920) and cascaded to fix full-bleed image width, heading line-wraps, card widths, and the footer CTA button row in one change.
+
+### Per-section image sizing (fixed-height → `h-full`)
+Ditto captures a fixed pixel height for images at the 1280px breakpoint; inside an aspect-ratio box that flexes wider at 1440px this leaves a gap or a dark band. Fixed on: collection-page heroes (dark `bg-foreground` band), product-grid cards, "You may also like" cards, and the Designer Picks grid (a 2-row template that injected a ~950px phantom gap). Two zero-width regressions were also fixed by restoring the captured element width: the fabric swatch circles (`w-14 h-14`) and the home "explore" carousel cards (`w-70`).
+
+## Interaction runtime — `public/cloned-interactions.js`
+
+Ditto reproduces appearance, not behaviour. everhem's live theme is **jQuery-driven with almost no scripted motion** — `theme.js` has no GSAP/Swiper/scroll library and only a handful of `addClass`/`toggleClass` calls (verified by reading the source). So the only interactions that needed re-implementing are the ones whose captured markup is inert. A single framework-free script (loaded once from `layout.tsx`, ~3 KB, no dependencies) wires:
+
+- **Announcement-bar dismiss** — the "Free shipping" bar's ✕ collapses the bar. *(verified working)*
+- **Carousel prev/next arrows** — arrow buttons scroll their nearest native `overflow-auto` track by one card width; transform-based carousels with no scroll track are left untouched.
+
+**Not reproduced (documented static limitations):**
+- **SHOP / GUIDANCE mega-menus** — Ditto emitted a generic `ditto/DropdownMenu` client component but did **not** capture the mega-menu panel fragments, so those nav items fall back to plain links (clicking navigates to the section page). Reconstructing the panels would mean fabricating content that was never captured.
+- **Cart / checkout / Shop Pay, account, search, live inventory/pricing** — dynamic Shopify features render as static stand-ins and do not transact.
