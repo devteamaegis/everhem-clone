@@ -553,3 +553,18 @@ body.cn0 {
   overflow-x: clip;
   overflow-y: visible;
 }
+
+/* Horizontal carousel / fabric-swatch tracks: the live site hides the native scrollbar
+   (scrollbar-width:none on .everhem-fabrics__swatches). Ditto emitted plain `overflow-auto`,
+   so Chrome painted its scrollbar. Hide it to match — drag-to-scroll is wired in
+   cloned-interactions.js so the tracks stay usable. All such tracks are flex ROWS (no
+   flex-col vertical scrollers exist), so this is safe. */
+.flex.overflow-auto {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.flex.overflow-auto::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}

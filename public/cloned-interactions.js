@@ -132,6 +132,40 @@
     }
     // Match every arrow-label variant everhem uses: "Scroll left/right" (explore),
     // "Next/Previous slide" (collab), and generic next/prev/forward/back.
+    /* 2b ── drag-to-scroll on horizontal tracks (native scrollbar is hidden to match live) ── */
+    document.querySelectorAll(".flex.overflow-auto").forEach(function (track) {
+      if (track.scrollWidth <= track.clientWidth + 8) return; // nothing to scroll
+      track.style.cursor = "grab";
+      track.style.userSelect = "none";
+      var down = false, startX = 0, startL = 0, moved = 0, pid = null;
+      track.addEventListener("pointerdown", function (e) {
+        if (e.button !== 0) return;
+        down = true; moved = 0; startX = e.clientX; startL = track.scrollLeft; pid = e.pointerId;
+        track.style.cursor = "grabbing";
+        try { track.setPointerCapture(e.pointerId); } catch (_) {}
+      });
+      track.addEventListener("pointermove", function (e) {
+        if (!down) return;
+        var dx = e.clientX - startX;
+        moved = Math.max(moved, Math.abs(dx));
+        track.scrollLeft = startL - dx;
+      });
+      function end() {
+        if (!down) return;
+        down = false; track.style.cursor = "grab";
+        try { track.releasePointerCapture(pid); } catch (_) {}
+      }
+      track.addEventListener("pointerup", end);
+      track.addEventListener("pointercancel", end);
+      track.addEventListener("pointerleave", end);
+      // a drag must not also fire a click on the swatch/card underneath
+      track.addEventListener("click", function (e) {
+        if (moved > 6) { e.preventDefault(); e.stopPropagation(); }
+      }, true);
+      // dragging an <img>/<a> shouldn't start the browser's native image/link drag
+      track.addEventListener("dragstart", function (e) { e.preventDefault(); });
+    });
+
     var arrowSel =
       'button[aria-label*="scroll" i], button[aria-label*="slide" i],' +
       'button[aria-label*="next" i], button[aria-label*="prev" i],' +
