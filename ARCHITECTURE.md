@@ -84,7 +84,8 @@ Ditto reproduces appearance, not behaviour. everhem's live theme is **jQuery-dri
 
 - **Announcement-bar dismiss** — the "Free shipping" bar's ✕ collapses the bar. *(verified working)*
 - **Carousel prev/next arrows** — arrow buttons scroll their nearest native `overflow-auto` track by one card width; transform-based carousels with no scroll track are left untouched.
+- **SHOP / GUIDANCE hover mega-menus** — reconstructed by hand (see above).
 
 **Not reproduced (documented static limitations):**
-- **SHOP / GUIDANCE mega-menus** — Ditto emitted a generic `ditto/DropdownMenu` client component but did **not** capture the mega-menu panel fragments, so those nav items fall back to plain links (clicking navigates to the section page). Reconstructing the panels would mean fabricating content that was never captured.
+- **SHOP / GUIDANCE mega-menus** — Ditto captured the nav links but not the hover dropdown panels, so these were **rebuilt by hand** in `cloned-interactions.js` from the live site's content + styling (full-width cream bar below the header, two link columns, Wigrum 10px uppercase headings). Hover to open, mouse-leave / Esc to close; clicking a top-level item still navigates.
 - **Cart / checkout / Shop Pay, account, search, live inventory/pricing** — dynamic Shopify features render as static stand-ins and do not transact.
