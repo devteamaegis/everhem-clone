@@ -1,0 +1,25 @@
+.cn0{height:800px;display:block;position:relative;top:0px;right:0px;bottom:0px;left:0px;z-index:50;overflow-x:hidden;overflow-y:hidden;color:var(--color-001);font-family:system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";font-size:14px;font-weight:400;font-style:normal;line-height:16.1px;letter-spacing:normal;word-spacing:0px;text-align:start;text-transform:none;white-space:normal;word-break:normal;overflow-wrap:normal;text-indent:0px;text-shadow:none;font-variant-caps:normal;font-feature-settings:normal;list-style-position:outside;writing-mode:horizontal-tb;direction:ltr;background-color:var(--color-022)}
+
+@media (max-width: 571px) {
+.cn0{height:812px}
+}
+
+@media (min-width: 572px) and (max-width: 1024px) {
+.cn0{height:1024px}
+}
+
+@media (min-width: 1601px) {
+.cn0{height:1080px}
+}
+@keyframes fadeIn { 
+  0% { opacity: 0.01; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 571px) {
+[data-ditto-id="style-shopify-section-template-20207705292962-main"]{background-image:linear-gradient(0deg, rgba(255, 255, 255, 0.5) -19.7%, rgba(255, 255, 255, 0.5) 52.12%, rgba(255, 255, 255, 0.2) 100%)}
+}
+/* Stage 4 — interaction states (hover/focus + eased transitions) */
+[data-ditto-id="style-link-5"]{transition:background-color 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), color 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), border-color 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), box-shadow 0.25s cubic-bezier(0.215, 0.61, 0.355, 1)}
+[data-ditto-id="style-link-5"]:hover{border-bottom-color:rgb(255, 255, 255);border-left-color:rgb(255, 255, 255);border-right-color:rgb(255, 255, 255);border-top-color:rgb(255, 255, 255);color:rgb(255, 255, 255);outline-color:rgb(255, 255, 255);text-decoration-color:rgb(255, 255, 255);transform:matrix(1.04926, 0, 0, 1.04926, 0, 0)}
+[data-ditto-id="style-link-5"]:focus{border-bottom-color:rgb(255, 255, 255);border-left-color:rgb(255, 255, 255);border-right-color:rgb(255, 255, 255);border-top-color:rgb(255, 255, 255);color:rgb(255, 255, 255);outline-color:rgb(88, 94, 79);outline-style:solid;outline-width:2px;text-decoration-color:rgb(255, 255, 255);transform:matrix(1.0401, 0, 0, 1.0401, 0, 0)}

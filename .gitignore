@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+dist
+
+.claude-flow
+.DS_Store
+*.log

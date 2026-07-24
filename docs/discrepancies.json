@@ -1,0 +1,440 @@
+{
+ "02-shop": [
+  {
+   "component": "Product carousel cards (Shades / Drapery / Caf\u00e9 Curtains / Fixed Curtains)",
+   "severity": "high",
+   "whatDiffers": "On LIVE every product image in a carousel row is forced to the same fixed height, so the swatch strip, product name and \"From $XXX\" price line up perfectly across all three cards. On CLONE the images render at their natural aspect ratios and end at different heights, staggering the text rows into a staircase (e.g. Caf\u00e9 Curtains: card 1 title starts high, card 2 lower, card 3 in between). In Fixed Curtains the third card (\"Full Fixed Curtains and Hardware\") image is taller than the first two, leaving a blank gray placeholder box beneath it and pushing its swatches/title/price well below the other two cards.",
+   "fixHint": "Constrain the product image to a fixed aspect ratio / uniform height with object-fit:cover (match live \u2014 roughly a 1.24:1 landscape box, ~330x266 at desktop) so all card images crop to equal height and the swatch/name/price rows sit on the same baseline. Remove any intrinsic-height rendering of the <img>."
+  },
+  {
+   "component": "Editorial break banner (\"Explore Jake Arnold for Everhem\")",
+   "severity": "high",
+   "whatDiffers": "LIVE image is full-bleed and spans the entire viewport width edge-to-edge. CLONE image does not reach the right edge \u2014 it leaves a blank cream vertical strip (~11% of width, ~160px) down the right side, and the banner is also shorter (clone 576px vs live 648px). The room photo appears left-anchored instead of covering the full width.",
+   "fixHint": "Make the banner a full-bleed section (width:100vw / w-screen, break out of the centered container) with the image at width:100%, height matching live, and object-fit:cover so it fills the full width with no right-side gap."
+  },
+  {
+   "component": "Caf\u00e9 Curtains carousel viewport",
+   "severity": "med",
+   "whatDiffers": "LIVE shows exactly 3 cards that fill the row flush to the right edge with the next card fully hidden. CLONE cards are narrower and the container reveals a partial 4th card (\"Box p...\") peeking in on the right, so the row reads as 3.3 cards instead of a clean 3.",
+   "fixHint": "Match card width + gap and the carousel viewport width so exactly three cards fill the visible row; clip overflow (overflow:hidden) so the next slide isn't partially exposed."
+  },
+  {
+   "component": "Section vertical spacing / overall page height",
+   "severity": "med",
+   "whatDiffers": "CLONE full page is ~612px taller than LIVE (5660 vs 5048). Beyond the staggered-card heights, there are enlarged empty gaps between blocks \u2014 most visibly a large phantom whitespace band between the Drapery carousel (its arrows drop far below the cards) and the \"Not sure where to start?\" block.",
+   "fixHint": "Once card images are constrained to a uniform height the carousel rows collapse to live height; also audit the vertical padding/margins between the carousel sections and the following CTA blocks so inter-section gaps match live."
+  },
+  {
+   "component": "Header utility icons",
+   "severity": "low",
+   "whatDiffers": "LIVE header shows both an account/person icon and a cart icon to the right of the green ORDER SWATCHES button. CLONE appears to show only the cart icon in that position (account icon missing). Low confidence at this resolution.",
+   "fixHint": "Confirm both account and cart utility icons are present at the far right of the header, in the same order/spacing as live."
+  }
+ ],
+ "01-home": [
+  {
+   "component": "Homepage layout \u2014 Designer Picks \u2192 photo-break spacing",
+   "severity": "high",
+   "whatDiffers": "A ~1000px block of empty cream whitespace sits between the Designer Picks 4-card row and the following full-bleed photo-break section. Live flows straight from the cards into the photo (~70px normal gap). This phantom gap is the main driver of the +748px clone page height.",
+   "fixHint": "Remove the oversized empty vertical space between the Designer Picks grid and the next section \u2014 likely a failed-to-render block or an erroneous margin-bottom/min-height on the Designer Picks container. Collapse to the ~70px section spacing seen in live."
+  },
+  {
+   "component": "'Custom, without the complexity' section \u2014 image carousel",
+   "severity": "high",
+   "whatDiffers": "Live shows a 4-up thumbnail track (SHADES / DRAPERY / CAF\u00c9 CURTAINS / FIXED CURTAINS labelled images) occupying the right ~65% of this section. In the clone that entire image track is blank cream \u2014 only the left text column and the prev/next arrows render.",
+   "fixHint": "Render the carousel slide images. The track is likely positioned off-screen or has zero height/opacity (off-screen JS carousel freeze). Give the track an explicit height and ensure slides are visible (transform:none/display + correct object-fit) so the 4 thumbnails appear beside the text as in live."
+  },
+  {
+   "component": "Full-bleed image sections (hero, photo-break, designer-collab banner)",
+   "severity": "high",
+   "whatDiffers": "All three full-width image sections leave a ~150px vertical cream strip on the RIGHT edge in the clone \u2014 the image stops around x=1285 of 1440. Live images span the full viewport width edge-to-edge.",
+   "fixHint": "Make the full-bleed sections span 100vw. The image/container is constrained to ~89% width; apply full-viewport-width sizing (e.g. width:100vw with the 50%/-50% margin technique) and object-fit:cover so hero, photo-break, and collab banner reach the right edge."
+  },
+  {
+   "component": "Hero heading 'Designer quality, made for you.'",
+   "severity": "med",
+   "whatDiffers": "Live wraps the heading after the comma into two balanced lines ('Designer quality,' / 'made for you.'). The clone heading column is wider (and font slightly smaller), so it wraps as 'Designer quality, made for' / 'you.', changing the line break and visual rhythm.",
+   "fixHint": "Narrow the hero heading max-width and/or increase font-size to force the break after 'Designer quality,' matching live's two-line balance."
+  }
+ ],
+ "08-jake-arnold": [
+  {
+   "component": "Hero banner image (above the fold)",
+   "severity": "high",
+   "whatDiffers": "The full-bleed hero photo of Jake Arnold on the sofa spans the entire viewport (0\u20131440px) on live, but in the clone it is capped at ~1280px and left-aligned, leaving a ~160px cream (rgb 253,251,247) vertical gutter down the right edge; the image also renders shorter because its height scales with the reduced width. This is the most prominent, above-the-fold element.",
+   "fixHint": "The hero band must break out to full viewport width (100vw). Live uses a full-bleed section (e.g. w-screen / margin-left:calc(50% - 50vw)); the clone is rendering it at the inner content max-width (~1280px) and left-aligned. Give the section width:100vw and set the img to width:100%; height:auto with object-fit:cover so it fills edge-to-edge."
+  },
+  {
+   "component": "Beautifully layered \u2014 full-bleed living-room image (break-1)",
+   "severity": "high",
+   "whatDiffers": "Same defect as the hero: the wide living-room photo (green curtains, sofa, piano) fills the full width on live but stops at ~x1280 in the clone, exposing a cream background band on the right (~160px) and rendering ~72px shorter than live (577 vs 649px). Pixel-sampled: clone right columns are page background where live has image content.",
+   "fixHint": "Apply the same full-bleed (100vw) breakout used for the hero to this image band; the image is inheriting the ~1280px container max-width and left alignment instead of stretching to the viewport edge."
+  },
+  {
+   "component": "Haze two-column image gallery (haze-gallery)",
+   "severity": "med",
+   "whatDiffers": "On live the two side-by-side room photos span nearly the full width (~x60 to ~x1387, roughly symmetric margins). In the clone both images are undersized and left-shifted \u2014 the right image ends around x1245, leaving a large ~195px cream whitespace band on the right and an asymmetric layout. Section is also ~75px shorter than live.",
+   "fixHint": "Make the two-column grid span the full content/viewport width (w-full grid grid-cols-2 with the correct gap) and center it; currently the row is capped narrower than the container and left-aligned, so images shrink and a right-side gutter opens up."
+  }
+ ],
+ "06-all-fixed-curtains": [
+  {
+   "component": "\"See it in your space\" swatch band",
+   "severity": "high",
+   "whatDiffers": "The LIVE beige band has a cluster of 5 overlapping round fabric-swatch color circles (white, tan, dark-brown, rust, olive) immediately to the left of the italic \"See it in your space, then decide.\" text. The CLONE omits these 5 circles entirely \u2014 the italic text starts flush at the left edge instead of after the swatch cluster.",
+   "fixHint": "Add the missing 5 overlapping circular fabric-swatch images to the left of the heading in this band; render them as a horizontal, slightly-overlapping row of round thumbnails before the text so the text left-margin matches live (~x=310 vs the current ~x=58)."
+  },
+  {
+   "component": "Footer \"Your windows deserve this\" CTA buttons",
+   "severity": "med",
+   "whatDiffers": "In LIVE the two CTA buttons (\"SHOP NOW\" filled + \"ORDER SWATCHES\" outlined) sit side-by-side on one horizontal row, centered under the heading. In CLONE they are stacked vertically \u2014 \"SHOP NOW\" on top, \"ORDER SWATCHES\" below.",
+   "fixHint": "Set the button group container to flex-direction: row (with gap and justify-content: center) so the two buttons render side-by-side instead of column-stacked."
+  },
+  {
+   "component": "Fixed Curtains hero image",
+   "severity": "med",
+   "whatDiffers": "The CLONE hero shows a solid dark horizontal band (~35px tall) across the full width at the bottom of the hero, below the curtain image, that is not present in LIVE. In LIVE the curtain photo fills the hero container edge-to-edge with no dark strip.",
+   "fixHint": "Make the hero image cover the full container height (object-fit: cover, height:100%) or increase the image element height so the dark hero background no longer shows as a letterbox band at the bottom."
+  },
+  {
+   "component": "\"Timeless design meets quality craftsmanship\" (Our Craft) section",
+   "severity": "low",
+   "whatDiffers": "CLONE heading renders slightly smaller and wraps differently \u2014 LIVE breaks \"Timeless design meets\" / \"quality craftsmanship\", CLONE breaks \"Timeless design meets quality\" / \"craftsmanship\". The two craft images also render ~40px shorter, making the whole section ~57px more compressed than live.",
+   "fixHint": "Increase the heading font-size (or reduce the heading text-column max-width) so it wraps after \"meets\" like live, and let the two craft images render at their full live height (~9% taller) to restore the section height."
+  }
+ ],
+ "09-this-oak-house": [
+  {
+   "component": "Hero + bottom CTA full-bleed images",
+   "severity": "high",
+   "whatDiffers": "The full-width dining-room hero image and the lower 'THIS OAK HOUSE FOR EVERHEM / SHOP OAK MATCHSTICK SHADES' banner image do not reach the right edge on the clone \u2014 the image stops around x=1283 of 1440, leaving an obvious ~157px empty cream strip down the right side, and each image sits shorter than live. This accounts for most of the ~358px total page-height shortfall (clone 6547 vs live 6905).",
+   "fixHint": "Make the hero and CTA banner section/image containers true full-bleed (width:100vw, breaking out of any centered max-width wrapper) with the img at width:100% height:100% object-fit:cover. Currently they appear capped at a ~1280px max-width and left-aligned instead of stretching to the viewport."
+  },
+  {
+   "component": "Section 5 'Oak Matchstick' product swatch",
+   "severity": "med",
+   "whatDiffers": "On live the swatch is a small ~170x170px square tile (close-crop of the bamboo weave) above 'Oak Matchstick / ADD SWATCH'. On the clone the same swatch is rendered as a wide horizontal strip spanning the full right text column (~675px wide, ~160px tall), distorting the product-card layout.",
+   "fixHint": "Constrain the swatch <img> to a fixed square (~170x170px) with object-fit:cover instead of width:100% of the column. Remove the full-width stretch on the swatch image wrapper."
+  },
+  {
+   "component": "Hero H1 heading line wrap",
+   "severity": "low",
+   "whatDiffers": "Live wraps the hero title as 'This Oak House' / 'for Everhem' (break after House). The clone fits more per line: 'This Oak House for' / 'Everhem' (break after for), changing the hero composition.",
+   "fixHint": "Reduce the hero H1 max-width (or bump font-size) so 'for Everhem' drops to the second line, matching live's break after 'House'."
+  }
+ ],
+ "05-all-cafe-curtains": [
+  {
+   "component": "Main content grids (product grid + 'You may also like')",
+   "severity": "high",
+   "whatDiffers": "Both product grids in the clone are ~125px narrower than live and shifted left, leaving a conspicuous ~190px empty gutter down the right side of the page (live grids end ~x1390, clone grids end ~x1247). Because the grid band is narrower, the product cards are correspondingly smaller/shorter (the 'You may also like' section is 57px shorter overall). Live grids span nearly edge-to-edge with symmetric side margins.",
+   "fixHint": "Widen the product-grid and recommendations-grid container to match live's inner content width (~1340px, symmetric ~48px side padding). Remove the narrow/left-shifted max-width on the grid wrapper so the 4-column and 3-column grids fill the full content area; card sizes will scale up to match live and the right gutter will close."
+  },
+  {
+   "component": "Hero banner (Caf\u00e9 Curtains)",
+   "severity": "med",
+   "whatDiffers": "The clone hero has a solid dark, full-width band/gap across the bottom of the hero where the curtain image stops. Live's hero image fills the entire hero container with no dark band.",
+   "fixHint": "Give the hero image object-fit:cover and height:100% of the hero container so it fills top-to-bottom; remove the exposed dark background band at the bottom (the image is not covering the full container height)."
+  },
+  {
+   "component": "Footer CTA ('Your windows deserve this.')",
+   "severity": "med",
+   "whatDiffers": "The two CTA buttons (SHOP NOW filled + ORDER SWATCHES outline) are stacked vertically in the clone but sit side-by-side in a single centered row on live.",
+   "fixHint": "Set the button group to flex-direction:row with a gap and center it, so SHOP NOW and ORDER SWATCHES render on one horizontal line as on live instead of stacked."
+  }
+ ],
+ "03-all-shades": [
+  {
+   "component": "Hero banner (\"Shades\")",
+   "severity": "high",
+   "whatDiffers": "The clone hero shows a solid dark charcoal horizontal band spanning the full width along the bottom edge of the woven-wood valance image. Live has no dark band \u2014 the image fades cleanly into the cream page background. The background image is not covering the full hero container height, so the dark section background shows through beneath it.",
+   "fixHint": "Set the hero background image to background-size:cover with object-position centered, or fix the hero container height so the image fills it; alternatively remove the extra dark-background height below the image band."
+  },
+  {
+   "component": "\"See it in your space, then decide.\" swatch CTA bar",
+   "severity": "med",
+   "whatDiffers": "Live shows 5 round fabric swatch circles (linen, greige, dark brown, rust, olive) at the far left of the beige bar, before the italic heading. In the clone these swatch circles are entirely missing \u2014 the bar starts directly with the heading text.",
+   "fixHint": "Add the 5 circular fabric-swatch elements (rounded images) as the first item in the bar's flex row, left of the \"See it in your space\" heading, matching the live sizing and gap."
+  },
+  {
+   "component": "\"Timeless design meets quality craftsmanship\" two-column section",
+   "severity": "med",
+   "whatDiffers": "Heading wraps differently: live breaks after \"meets\" (\"Timeless design meets\" / \"quality craftsmanship\"); clone breaks after \"quality\" (\"Timeless design meets quality\" / \"craftsmanship\"), indicating the text column is too wide. The right-hand image pair also renders shorter and wider in the clone vs taller/narrower portrait in live, making the whole section ~57px shorter.",
+   "fixHint": "Narrow the left text column so the heading wraps after \"meets\", and constrain the two right images to a taller/narrower aspect ratio (fix the image-column width / aspect-ratio) to match live proportions."
+  },
+  {
+   "component": "\"You may also like\" product cards",
+   "severity": "low",
+   "whatDiffers": "The three portrait product images (Drapery, Caf\u00e9 Curtains, Fixed Curtains) render roughly 60px shorter in the clone than in live, leaving extra trailing whitespace below the section before the dark CTA. Card content, swatches, titles and prices otherwise match.",
+   "fixHint": "Increase the portrait product-image height / correct the image aspect ratio so the cards match the taller live images and remove the phantom whitespace gap below the section."
+  }
+ ],
+ "07-all-hardware": [
+  {
+   "component": "Page body container (site-wide layout)",
+   "severity": "high",
+   "whatDiffers": "Everything below the sticky header is constrained to a ~1280px-wide block pinned to the LEFT edge, leaving a persistent ~160px empty white gutter down the whole right side of the page. Full-bleed sections that should span the viewport stop early (hero image 0\u21921279, the beige 'Our Craft' band 0\u21921279, the dark 'Your windows deserve this' CTA + footer 0\u21921279) instead of live's full 0\u21921439. Contained product grids sit at x32\u21921247 instead of live's centered x52\u21921387. The header spans the full width correctly, so the body is visibly misaligned with (and narrower than) the header. This single defect drives the whole-page diff.",
+   "fixHint": "Remove the ~1280px max-width / left anchor on the body wrapper. Full-bleed sections (hero, Our Craft band, dark CTA, footer) should be width:100vw / 100%; contained rows should be centered with margin:0 auto and ~52px symmetric side padding so body content aligns with the header logo (x52) and right icons (x1386)."
+  },
+  {
+   "component": "Footer CTA button group ('Your windows deserve this.')",
+   "severity": "med",
+   "whatDiffers": "The 'SHOP NOW' (filled) and 'ORDER SWATCHES' (outlined) buttons render stacked vertically (SHOP NOW above ORDER SWATCHES) in the clone, but sit side-by-side on one horizontal row in live.",
+   "fixHint": "Set the button container to display:flex; flex-direction:row; justify-content:center; gap; flex-wrap:nowrap so the two buttons stay on one row."
+  },
+  {
+   "component": "Hero banner ('Hardware')",
+   "severity": "med",
+   "whatDiffers": "A phantom solid dark band (~#282721, ~40px tall) runs across the bottom edge of the hero image in the clone, where in live the rod image continues to the section edge with no dark strip. (The hero also does not reach the right edge \u2014 covered by the container finding above.)",
+   "fixHint": "Ensure the hero image fills its container height (object-fit:cover with matching height) so no dark background shows through at the bottom; remove/collapse the extra dark element or letterbox strip beneath the image."
+  },
+  {
+   "component": "'Our Craft' heading",
+   "severity": "low",
+   "whatDiffers": "Heading wraps differently: live breaks as 'Timeless design meets' / 'quality craftsmanship' (break after 'meets'); clone breaks as 'Timeless design meets quality' / 'craftsmanship' (break after 'quality'). Downstream of the wrong text-column width.",
+   "fixHint": "Match the heading column max-width / font-size so the line breaks after 'meets', reproducing live's two-line balance."
+  }
+ ],
+ "04-all-drapery": [
+  {
+   "component": "Main content container (page-wide: product grid, swatch banner, Our Craft, You may also like)",
+   "severity": "med",
+   "whatDiffers": "Live centers content within ~53px symmetric margins (spans x52\u20131387 of 1440). Clone content is narrower AND left-aligned: spans x32\u20131247, leaving a ~190px empty gutter on the right while hugging the left. This shrinks the product cards and the Our Craft / You-may-also-like image rows (dH=57 on both) and makes the whole page look off-center / shifted left.",
+   "fixHint": "Set the main content wrapper to max-width ~1336px centered (margin: 0 auto) with symmetric ~53px horizontal padding to match live, instead of the current narrower, left-offset container."
+  },
+  {
+   "component": "'See it in your space, then decide.' swatch banner",
+   "severity": "med",
+   "whatDiffers": "Live shows 5 overlapping round fabric-swatch chips (cream, tan, dark brown, brown, olive) immediately left of the italic headline. Clone omits them entirely \u2014 the left side is empty before the text.",
+   "fixHint": "Add the 5 overlapping circular swatch thumbnails (border-radius:50%, negative margin overlap) before the headline in the banner's left flex group."
+  },
+  {
+   "component": "'Timeless design meets quality craftsmanship' heading (Our Craft)",
+   "severity": "low",
+   "whatDiffers": "Same font/size, but line break moves: live wraps 'Timeless design meets / quality craftsmanship' (3+2), clone wraps 'Timeless design meets quality / craftsmanship' (4+1, leaving 'craftsmanship' alone). The clone heading column is slightly wider than live's, changing the headline balance.",
+   "fixHint": "Constrain the heading column width (or add a max-width / manual <br> after 'meets') so it wraps after the third word like live."
+  }
+ ],
+ "12-collaborations": [
+  {
+   "component": "\"Your windows deserve this.\" CTA button group (dark footer band)",
+   "severity": "med",
+   "whatDiffers": "On LIVE the two buttons SHOP NOW and ORDER SWATCHES sit side-by-side in a single horizontal row, centered under the heading. On the CLONE they are stacked vertically (SHOP NOW on top, ORDER SWATCHES below), which also makes this band ~52px taller than live.",
+   "fixHint": "Change the CTA button wrapper to a horizontal flex row (display:flex; flex-direction:row; justify-content:center; gap:~16px) instead of a vertical/column stack, so the two buttons render on one line as in live."
+  },
+  {
+   "component": "\"This Oak House for Everhem\" section heading",
+   "severity": "low",
+   "whatDiffers": "Line break differs: LIVE wraps as \"This Oak House\" / \"for Everhem\"; CLONE wraps as \"This Oak House for\" / \"Everhem\". Indicates the heading column is slightly wider (or font-size slightly smaller) in the clone.",
+   "fixHint": "Match the heading text column width / font-size to live so the title breaks after \"House\"; narrow the text column or bump the heading font-size a hair to force the same wrap."
+  },
+  {
+   "component": "Collaboration rows vertical rhythm (Jake Arnold through Carly Kuhn)",
+   "severity": "low",
+   "whatDiffers": "The clone's collaboration section is ~290px shorter than live; vertical spacing between the alternating image/text rows is slightly more compressed than the live site, though all content is present and correctly arranged.",
+   "fixHint": "Increase the vertical margin/padding between each collaboration row to match live spacing (roughly +290px distributed across the five rows)."
+  }
+ ],
+ "16-faq": [
+  {
+   "component": "Dark footer CTA buttons (\"SHOP NOW\" / \"ORDER SWATCHES\")",
+   "severity": "high",
+   "whatDiffers": "In the live dark footer band, the two CTA buttons under \"Your windows deserve this.\" sit side-by-side in a single horizontal row (SHOP NOW filled + ORDER SWATCHES outline). In the clone they are stacked vertically \u2014 SHOP NOW on top, ORDER SWATCHES beneath it \u2014 changing the layout and adding vertical height.",
+   "fixHint": "Set the button group container to flex-direction: row with justify-content: center and a gap (e.g. gap:12px), instead of column. Both buttons should render inline on one line as on live."
+  },
+  {
+   "component": "Whitespace between \"Still have questions?\" CTA section and dark footer",
+   "severity": "high",
+   "whatDiffers": "The clone renders a large empty white gap (~430px) between the cream \"Still have questions?\" CONTACT US box and the dark \"Your windows deserve this.\" footer band; on live these are separated by only a small margin. This phantom gap accounts for nearly the entire clone/live page-height delta (4285 vs 3849px).",
+   "fixHint": "Remove the excess bottom margin/padding (or an empty spacer element / unintended min-height) on the FAQ content wrapper or the CTA section that precedes the footer, so the footer follows the CTA box with the same tight spacing as live."
+  }
+ ],
+ "10-amber-lewis": [
+  {
+   "component": "Hero banner image (Amber Lewis x Everhem)",
+   "severity": "high",
+   "whatDiffers": "The hero background photo is not full-bleed in the clone. It stops ~150px short of the right edge (content ends x\u22481290, then a solid cream strip rgb(253,251,247) fills x\u22481290\u21921440). On live the photo reaches the full 1440 viewport edge. The hero is also ~90px shorter (736px vs 828px) as a side effect of the reduced width at fixed aspect ratio.",
+   "fixHint": "Make the hero section/image span the full viewport width (width:100vw or 100%, object-fit:cover) so it reaches x=1440. Remove the right padding/max-width or extra trailing grid column that is capping the section at ~1290px anchored to the left."
+  },
+  {
+   "component": "'Explore the Collection' full-width band",
+   "severity": "high",
+   "whatDiffers": "Same right-edge clipping: the full-bleed foliage/curtain image stops at x\u22481285 with a cream strip (253,251,247) filling to 1440, and the band is 72px shorter than live (576 vs 648). Because the image container is only ~1290px wide and left-anchored, the centered 'AMBER LEWIS X EVERHEM / EXPLORE THE COLLECTION' caption sits at ~x640 (image center) instead of x720 (page center), so it looks shifted left of center.",
+   "fixHint": "Span this section image to full viewport width so it reaches the right edge; the centered caption overlay then re-centers on the true page midpoint. Fix the shared full-bleed width constraint (~1290px left-anchored) rather than nudging the text."
+  },
+  {
+   "component": "'Tailored for Timeless Design' right-column image",
+   "severity": "med",
+   "whatDiffers": "The two-women photo in the right column is not right-aligned to the content container. Clone image spans x\u2248576\u21921247 (right margin ~193px); live spans x\u2248646\u21921387 (right margin ~53px, matching the ~48px left text margin). The image is shifted ~140px left and slightly narrower, leaving a large empty cream gap on its right and breaking the symmetric two-column layout.",
+   "fixHint": "Right-align the image column to the container's right edge (equal ~50px margins both sides), or restore the grid so the image cell fills to the right gutter. Likely the same underlying width constraint clipping the right side of the layout."
+  }
+ ],
+ "17-design-services": [
+  {
+   "component": "Hero section (Design Services)",
+   "severity": "high",
+   "whatDiffers": "The hero background image is not full-bleed in the clone \u2014 it stops at ~1278px and leaves a visible empty cream column (~160px) along the right edge. On live the hero image spans the full viewport width edge-to-edge (0\u20131440px). The clone hero is also ~92px shorter as a result of being constrained.",
+   "fixHint": "Make the hero section full-bleed: width:100vw (or w-screen with negative margin to escape any max-width wrapper) and remove the max-width cap so the background image covers the entire viewport width like live."
+  },
+  {
+   "component": "Page content container / section alignment",
+   "severity": "high",
+   "whatDiffers": "The 'Treat us like the interior designer' split section and the 'Why book a session' 3-card grid are pinned to the LEFT inside a too-narrow max-width container (left gutter ~32px, right gutter ~190px \u2014 clearly not centered), producing a phantom empty column on the right across the whole page. Live centers a wider container (~52px symmetric gutters, content span ~52\u20131388px), so live images and cards are noticeably larger and the layout is balanced.",
+   "fixHint": "Center the main content wrapper with mx-auto and widen its max-width to match live (~1336px content region with ~52px symmetric gutters). The container is currently left-aligned and undersized \u2014 add horizontal centering and correct max-width."
+  },
+  {
+   "component": "Bottom CTA ('Your windows deserve this.')",
+   "severity": "med",
+   "whatDiffers": "The SHOP NOW and ORDER SWATCHES buttons are stacked vertically in the clone (SHOP NOW above ORDER SWATCHES). On live they sit side-by-side in a single horizontal row.",
+   "fixHint": "Set the button group to a horizontal flex row (flex-row with gap) instead of flex-col so the two buttons render on one line as on live."
+  }
+ ],
+ "15-how-it-works": [
+  {
+   "component": "Full-bleed image sections (hero, mid-page photo break, alternating image blocks)",
+   "severity": "high",
+   "whatDiffers": "In the clone the hero ('The Everhem Experience'), the mid-page dining-room photo break ('SHOP NOW'), and the right-side '03 - Order' image all stop ~160-180px short of the right viewport edge, leaving a cream vertical band on the right. The same width constraint also renders the hero and photo-break ~72px shorter (dH 72 on both). In live all these images span the full 1440px width edge-to-edge.",
+   "fixHint": "Make these sections truly full-bleed (width:100vw with margin-left:calc(50% - 50vw), or remove the ~1275px left-anchored max-width wrapper) so images reach the right viewport edge; right-column image blocks (01-Design, 03-Order) should extend to x=1440, not stop at ~1270."
+  },
+  {
+   "component": "CTA button groups ('Let's get started' section + footer)",
+   "severity": "med",
+   "whatDiffers": "Live places each CTA pair side-by-side in a horizontal row (ORDER FREE SWATCHES + BOOK A DESIGN SESSION under 'Let's get started.'; SHOP NOW + ORDER SWATCHES in the footer under 'Your windows deserve this.'). The clone stacks each pair vertically instead.",
+   "fixHint": "Set the button-group container to display:flex; flex-direction:row with a gap and flex-wrap:nowrap so the two CTAs sit side-by-side as in live."
+  }
+ ],
+ "18-design-services-trade": [
+  {
+   "component": "Page body / full-bleed sections (hero image + \"How we work with trade\" band)",
+   "severity": "high",
+   "whatDiffers": "On LIVE the hero photo and the beige \"How we work with trade\" section span the full viewport width (0\u20131440px) and the 3-card grid is centered with equal side margins. On CLONE the body content is left-anchored and stops at ~1290px, leaving a ~150px cream/white whitespace gutter down the entire right edge: the hero photo cuts off before the right edge, the beige feature band does not reach the right edge (bare page background shows), and the 3 cards are pushed left (left margin ~28px vs right gutter ~150px). The header/announcement bar, by contrast, correctly span full width \u2014 so it is only the page-body sections that are constrained.",
+   "fixHint": "The body wrapper is capped/left-aligned instead of full width. Make full-bleed sections (hero, feature band) width:100vw / 100% of viewport, and center the inner max-width content containers with margin:0 auto so side margins are symmetric. Remove the left-anchoring max-width on the page body."
+  },
+  {
+   "component": "Footer \"Your windows deserve this.\" CTA buttons",
+   "severity": "med",
+   "whatDiffers": "LIVE renders SHOP NOW and ORDER SWATCHES side by side in a single horizontal row. CLONE stacks them vertically (SHOP NOW above ORDER SWATCHES).",
+   "fixHint": "Set the button group to display:flex; flex-direction:row; align items center with a gap between the two buttons; remove the wrap/column stacking so both fit on one line."
+  },
+  {
+   "component": "\"An extension of your workflow.\" heading + text column",
+   "severity": "med",
+   "whatDiffers": "LIVE wraps the italic heading as \"An extension of\" / \"your workflow.\" and the text column sits further right (starts ~x757). CLONE wraps it as \"An extension of your\" / \"workflow.\" and the whole text column is shifted left (~x672), narrowing the gap to the image.",
+   "fixHint": "Tighten the heading column max-width (or nudge the heading font-size up) so the line breaks after \"of\", and shift the right text column back to match LIVE's horizontal position/gap from the image."
+  }
+ ],
+ "11-carly-kuhn": [
+  {
+   "component": "Global page layout \u2014 full-height right gutter",
+   "severity": "high",
+   "whatDiffers": "The entire clone page body is confined to a ~1280px column pinned flush-LEFT, leaving a persistent blank vertical strip (~150-165px) down the whole RIGHT edge. On live everything spans the full 1440 viewport. This clips: the hero bedroom image (stops at ~1290 instead of full-bleed edge-to-edge), the Shop the Collection product grid and its heading divider rule (right rule ends ~1250 vs live ~1388), the 'Bringing the Vision to Life' right-hand image, the bottom lifestyle image + its 'THE CARLY KUHN COLLECTION / SHOP NOW' overlay (centered in the narrow image rather than the page), and most glaringly the dark FOOTER \u2014 its dark background itself stops ~160px short of the right edge, exposing a light strip beside the 5 footer columns. The sticky top bar and header are the only elements that reach full width, which makes the mismatch more obvious.",
+   "fixHint": "The top-level content wrapper is ~1280px wide and left-aligned. Set it to full viewport width (width:100%; remove the fixed/left-pinned max-width, or center with margin:0 auto so it fills 1440). Ensure the full-bleed sections (hero image, bottom lifestyle image) and the footer's dark background use width:100% of the now-full wrapper (object-fit:cover for the images) so all sections and the footer bg extend to the right edge as on live."
+  }
+ ],
+ "14-guidance": [
+  {
+   "component": "Page body / main content wrapper",
+   "severity": "high",
+   "whatDiffers": "Below the full-width header, the clone's entire body (hero, 'Your Partner in Design' cards, swatch grid, 'Measure like a pro' dark section, and CTA+footer) is constrained to ~1280px and anchored to the LEFT edge, leaving a ~160px empty margin on the right. Full-bleed dark sections ('Measure like a pro', footer CTA) stop ~160px short of the right viewport edge, exposing a cream vertical strip. In live the same content is centered and full-bleed sections run edge-to-edge across the full 1440. This off-center wrapper also makes the clone ~700px shorter overall (images scale down in the narrower column).",
+   "fixHint": "The main body wrapper is missing horizontal centering and/or has too-small a max-width. Set the content container to margin-inline:auto with the correct max-width (live content ~1300-1336px), and let the dark 'Measure like a pro' and footer/CTA sections span the full viewport width (100vw / full-bleed). The header is already correct, so scope the fix to the body wrapper only."
+  },
+  {
+   "component": "'Which fabric is best for you?' swatch grid",
+   "severity": "med",
+   "whatDiffers": "Each collection row (Everhem Hues, Everhem Essentials, Jake Arnold for Everhem) renders only 6 swatches; the 7th swatch is clipped or hidden \u2014 Juniper (Hues), Rose (Essentials), and Mist (Jake Arnold) are missing versus 7 shown per row in live. Row labels still say '7 fabrics'/'11 fabrics' but the rightmost column falls outside the narrowed container.",
+   "fixHint": "Symptom of the narrowed left-anchored wrapper (finding 1): restoring the correct body width lets the 7-column grid fit. Verify grid-template-columns stays at 7 columns and the row does not overflow/clip the last swatch."
+  }
+ ],
+ "13-samples": [
+  {
+   "component": "Footer / \"Your windows deserve this\" CTA dark band",
+   "severity": "high",
+   "whatDiffers": "The dark background behind the CTA band and the footer stops at x\u22481280 in the clone, leaving a ~160px cream vertical strip down the right edge of the page. In live the same dark section spans the full viewport width (edge-to-edge). Verified by pixel scan: clone dark background ends at x1279, live ends at x1439.",
+   "fixHint": "Make the dark CTA/footer wrapper full-bleed instead of capped at the ~1280px content container. Set width:100% (or full-bleed via width:100vw; margin-left:calc(50% - 50vw)) on the outer section so the dark background reaches the right edge."
+  },
+  {
+   "component": "Two-column sample blocks (room photo + swatch grid)",
+   "severity": "med",
+   "whatDiffers": "The room-photo column renders ~9% smaller in the clone. Jake Arnold room image measures 500x579 in the clone vs 549x644 in live (same aspect), and the swatch grid is correspondingly wider (~775px clone vs ~740px live). The column split is ~38%/59% in the clone vs ~41%/55% in live. Repeated across all 10 sample blocks this accounts for the entire ~626px shorter page height and makes the imagery look slightly compressed on direct comparison.",
+   "fixHint": "Increase the image column width to match live's ratio (widen its flex-basis / grid-template-column so the photo column is ~41% of the row rather than ~38%), which restores image size and section heights."
+  }
+ ],
+ "21-contact": [
+  {
+   "component": "Full-bleed sections (hero image + dark \"Your windows deserve this\"/footer)",
+   "severity": "high",
+   "whatDiffers": "In the clone the full-width hero curtain image and the dark \"Your windows deserve this\" + footer section stop roughly 160px short of the right viewport edge, leaving a cream gutter running down the right side. In live both run edge-to-edge across the full viewport (100vw).",
+   "fixHint": "Make these breakout sections span the full viewport width (width:100vw with left:50%/translateX(-50%) breakout, or remove the max-width/right margin capping the wrapper to ~1280px). Ensure the hero image itself is width:100% of the full-bleed container."
+  },
+  {
+   "component": "Hero banner image (\"We're here to help\")",
+   "severity": "high",
+   "whatDiffers": "The clone hero curtain image does not fill the hero container's height \u2014 a dark/near-black band shows along the bottom edge beneath the image (behind and below the \"We're here to help\" text). In live the image covers the entire hero with no dark strip.",
+   "fixHint": "Give the hero image object-fit:cover and height:100% of the hero container (or set the container height to match the image height) so the dark section background is not exposed below it."
+  },
+  {
+   "component": "\"Your windows deserve this.\" CTA buttons (SHOP NOW / ORDER SWATCHES)",
+   "severity": "med",
+   "whatDiffers": "The two buttons are stacked vertically (SHOP NOW above ORDER SWATCHES) in the clone. In live they sit side-by-side in a single centered horizontal row.",
+   "fixHint": "Set the button group container to flex-direction:row with a gap and justify-content:center instead of column, matching live's inline-row layout."
+  }
+ ],
+ "19-trade": [
+  {
+   "component": "Page content width / section backgrounds (hero + body sections)",
+   "severity": "high",
+   "whatDiffers": "Clone lays out the whole page in a left-anchored column that stops ~150px short of the right edge, leaving a persistent lighter empty band down the right side (boundary at ~x1275-1290 in the hero, 3-column grid, and 'Everything you need' section). The hero photo no longer reaches the right viewport edge (full-bleed lost) and the cream section backgrounds don't extend full width. Live content is centered/symmetric (~52px side margins), spans nearly the full 1440 width, and hero + colored sections are full-bleed.",
+   "fixHint": "Center the main content wrapper (mx-auto) with symmetric side padding instead of a narrow left-anchored max-width; make the hero image container and the colored section backgrounds full-bleed (w-full / 100vw) so no right-edge band appears."
+  },
+  {
+   "component": "Hero headline 'For Designers, By Designers.'",
+   "severity": "med",
+   "whatDiffers": "Clone headline is ~13% smaller and wraps as 'For Designers, By' / 'Designers.'; live is larger and breaks after the comma: 'For Designers,' / 'By Designers.'",
+   "fixHint": "Increase the hero heading font-size to match live and/or constrain its max-width so the line break falls after the comma."
+  },
+  {
+   "component": "Footer CTA buttons under 'Your windows deserve this.'",
+   "severity": "med",
+   "whatDiffers": "Clone stacks 'SHOP NOW' and 'ORDER SWATCHES' vertically (two rows); live shows them side by side on a single row.",
+   "fixHint": "Set the button group to flex-row with a gap (not column) and ensure the container is wide enough to hold both on one line."
+  },
+  {
+   "component": "'Apply to join Everhem Trade' APPLY NOW button",
+   "severity": "med",
+   "whatDiffers": "Clone button is too narrow so the label wraps to two lines ('APPLY' / 'NOW'), making a taller button; live keeps 'APPLY NOW' on one line.",
+   "fixHint": "Add white-space:nowrap plus adequate horizontal padding / min-width so the label stays on one line."
+  },
+  {
+   "component": "Footer email signup field (CONNECT column)",
+   "severity": "low",
+   "whatDiffers": "Clone shows a '\u2192' submit arrow inside the 'your@email.com' field; live's field has no visible arrow affordance.",
+   "fixHint": "Match live by removing the arrow icon (or restyle the submit control to the plain underlined-field look live uses)."
+  }
+ ],
+ "20-about-us": [
+  {
+   "component": "Full-bleed sections / page width",
+   "severity": "high",
+   "whatDiffers": "Every full-width section in the clone is capped at ~1280px and pinned to the left, leaving a persistent ~160px WHITE gap down the right edge of the page. Visible on the hero image (ends ~x1280 with white to 1440), the bottom 3-image curtain gallery row, the cream 'The Everhem Way' band, the 'As Seen In' block, and the dark 'Your windows deserve this.' CTA band. Live renders all of these edge-to-edge (0\u20131440). Because the container is left-pinned, centered content (As Seen In heading, CTA heading/buttons) is shifted left of true page center.",
+   "fixHint": "Make these full-bleed sections span the full viewport: give the hero image / section backgrounds width:100vw (or remove the max-w-[~1280px] cap on the outer page wrapper) and center inner content with mx-auto so backgrounds reach the right edge and centered blocks sit at the true 720px midline."
+  },
+  {
+   "component": "'Your windows deserve this.' CTA buttons",
+   "severity": "med",
+   "whatDiffers": "Clone stacks the two buttons vertically (SHOP NOW on top, ORDER SWATCHES below). Live places them side-by-side in a single horizontal row.",
+   "fixHint": "Set the button group to flex-direction:row (inline-flex with a gap) instead of column so SHOP NOW and ORDER SWATCHES sit next to each other."
+  },
+  {
+   "component": "'As Seen In' press logo bar",
+   "severity": "med",
+   "whatDiffers": "Clone wraps the logos 3+2 (Forbes / AD / Modern Luxury on row 1; domino / Homes & Gardens on row 2). Live fits 4 on row 1 (Forbes / AD / Modern Luxury / domino) with Homes & Gardens centered alone on row 2. Clone logos also render oversized (domino and Homes & Gardens noticeably larger than live).",
+   "fixHint": "Reduce logo max-height/width (and/or the row gap) to match live and let the row use full width so all four fit on line 1 with Homes & Gardens centered on line 2."
+  },
+  {
+   "component": "Hero heading line break",
+   "severity": "low",
+   "whatDiffers": "Live breaks 'Your window / treatment experts.' after 'window' (2 lines) and sits lower in the hero; clone breaks 'Your window treatment / experts.' after 'treatment' and sits higher.",
+   "fixHint": "Constrain the hero heading column width to force the break after 'window' and match the lower vertical anchor position; largely resolves once the hero regains full-bleed width."
+  }
+ ]
+}
