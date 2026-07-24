@@ -12,7 +12,7 @@ export default function MediaCard({ d }: { d: MediaCardData }) {
     <div className="flex flex-col">
       <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={d.href}>
         <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-          <img className="w-full h-[30.4375rem] block max-w-full overflow-clip object-cover aspect-[auto_520/650] max-md:h-[26.8125rem] md:max-lg:h-[27.5625rem]" data-component="image" alt={d.alt} height="650" src={d.imgSrc} width="520" />
+          <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] max-md:h-full md:max-lg:h-full" data-component="image" alt={d.alt} height="650" src={d.imgSrc} width="520" />
         </div>
         {" "}
       </a>
