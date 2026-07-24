@@ -456,7 +456,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/london-shades?itemId=&windowName=&selections.mountPosition=outside-mount&selections.fabric=JGRDN&selections.customControl=chain-loop&selections.style=londonShade&selections.lining=privacy&selections.shadeOperation=back&selections.windowWidth=outside-mount&selections.windowHeight=outside-mount&selections.cordPosition=left&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="London Shade" height="650" src="/assets/cloned/images/e0f49fcaa089.png" width="520" />
+                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="London Shade" height="650" src="/assets/cloned/images/e0f49fcaa089.png" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -482,7 +482,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/woven-woods?itemId=&windowName=&selections.mountPosition=inside-mount&selections.customControl=chain-loop&selections.fabric=WILTR&selections.lining=privacy&selections.cordPosition=right&selections.shadeOperation=back&selections.windowWidth=inside-mount&selections.windowHeight=inside-mount&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Sudare Woven Wood Shade" height="650" src="/assets/cloned/images/3078e5b0170d.jpg" width="520" />
+                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Sudare Woven Wood Shade" height="650" src="/assets/cloned/images/3078e5b0170d.jpg" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -505,7 +505,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/roman-shades?itemId=&windowName=&selections.mountPosition=outside-mount&selections.fabric=JDMMG&selections.customControl=motorization&selections.style=flat&selections.lining=privacy&selections.cordPosition=right&selections.shadeOperation=back&selections.windowWidth=outside-mount&selections.windowHeight=outside-mount&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Flat Roman Shade" height="650" src="/assets/cloned/images/ae1a3acc38b0.jpg" width="520" />
+                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Flat Roman Shade" height="650" src="/assets/cloned/images/ae1a3acc38b0.jpg" width="520" />
                     </div>
                     {" "}
                   </a>

@@ -13,7 +13,7 @@ export default function MediaCard5({ d }: { d: MediaCard5Data }) {
     <div className="flex flex-col shrink-0">
       <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={d.href}>
         <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-          <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt={d.alt} height="650" src={d.imgSrc} width="520" />
+          <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt={d.alt} height="650" src={d.imgSrc} width="520" />
         </div>
         {" "}
       </a>
