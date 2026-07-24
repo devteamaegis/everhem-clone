@@ -7,7 +7,7 @@ export type MediaLinkData = {
 /** A linked media tile. */
 export default function MediaLink({ d }: { d: MediaLinkData }) {
   return (
-    <a className="h-105 block shrink-0 cursor-pointer" data-component="link" href={d.href}>
+    <a className="w-70 h-105 block shrink-0 cursor-pointer" data-component="link" href={d.href}>
       <div className="block relative overflow-hidden aspect-[2/3] bg-accent">
         <img className="w-full h-full block absolute top-0 left-0 max-w-full overflow-clip object-cover aspect-[auto_560/840]" data-component="image" alt={d.alt} height="840" src={d.imgSrc} width="560" />
         <div className="w-70 h-full block absolute top-0 left-0" style={{ backgroundImage: "linear-gradient(to top, var(--clr-8) 0%, var(--clr-9) 40%, var(--clr-0) 100%)" }} />
