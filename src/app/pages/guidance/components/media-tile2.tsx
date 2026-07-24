@@ -10,10 +10,10 @@ function cn(...parts: Array<string | false | null | undefined>) {
 }
 export default function MediaTile2({ d, styles }: { d: MediaTile2Data; styles: MediaTile2Styles }) {
   return (
-    <div className="block shrink-0 2xl:hidden">
-      <img className={cn("h-32 border border-solid border-primary block max-w-full overflow-clip object-cover aspect-[auto_256/256] bg-accent max-lg:h-24 2xl:hidden", styles.className)} data-component="image" alt={d.alt} height="256" src={d.imgSrc} width="256" />
+    <div className="block shrink-0">
+      <img className={cn("h-32 border border-solid border-primary block max-w-full overflow-clip object-cover aspect-[auto_256/256] bg-accent max-lg:h-24", styles.className)} data-component="image" alt={d.alt} height="256" src={d.imgSrc} width="256" />
       {" "}
-      <p className="block text-color-004 text-[0.6875rem] leading-[1.0625rem] text-center [overflow-wrap:break-word] 2xl:hidden">
+      <p className="block text-color-004 text-[0.6875rem] leading-[1.0625rem] text-center [overflow-wrap:break-word]">
         {d.description}
       </p>
       {" "}

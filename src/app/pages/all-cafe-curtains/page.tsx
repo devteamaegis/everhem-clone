@@ -124,7 +124,7 @@ export default function Page() {
       <section className="grid relative grid-cols-[minmax(20px,1fr)_minmax(0,1400px)_minmax(20px,1fr)] grid-rows-1 aspect-[4.59] max-md:grid-cols-[16px_343px_16px] max-md:aspect-[8/5] md:max-lg:grid-cols-[16px_736px_16px] md:max-lg:aspect-[3.429]" data-ditto-id="style-shopify-section-template-20207705292962-main" aria-hidden="true" id="shopify-section-template--20207705620642__header">
         <section className="block relative mt-24 col-span-full overflow-hidden bg-foreground">
           <div className="w-full h-full min-h-32 block relative aspect-[7.001] max-md:aspect-[2.667] max-md:min-h-0 md:max-lg:aspect-[6]">
-            <img className="w-full h-[11.4375rem] block max-w-full overflow-clip object-cover aspect-[auto_2400/700] max-md:h-[8.8125rem] md:max-lg:h-32" data-component="image" alt="A kitchen window with custom Everhem café curtains." height="700" src="/assets/cloned/images/21fd84700021.jpg" width="2400" />
+            <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_2400/700] max-md:h-full md:max-lg:h-full" data-component="image" alt="A kitchen window with custom Everhem café curtains." height="700" src="/assets/cloned/images/21fd84700021.jpg" width="2400" />
             <div className="h-full block absolute top-0 inset-x-0 [background-size:auto,_auto] [background-position:0%_0%,_0%_0%] [background-repeat:repeat,_repeat] [background-clip:border-box,_border-box] [background-origin:padding-box,_padding-box] [background-attachment:scroll,_scroll] [background-blend-mode:normal,_normal] [-webkit-background-clip:border-box,_border-box]" style={{ backgroundImage: "linear-gradient(to top, var(--clr-16), var(--clr-6) 45%, var(--clr-7) 70%), linear-gradient(to right, var(--clr-17), var(--clr-7) 45%)" }} aria-hidden="true" />
             {" "}
           </div>
@@ -149,7 +149,7 @@ export default function Page() {
               <div className="flex flex-col">
                 <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/cafe-curtains?itemId=&windowName=&selections.package=hardware-only&selections.fabric=BOSHR&selections.pleat=pinch&selections.hardwareFinish=matte-black&selections.mountPosition=inside-mount&selections.rodSize=0.375&selections.panels=double&selections.windowHeight=inside-mount-width&selections.windowWidth=inside-mount-width&rulers.depth=1&rulers.windowWidthA=16&rulers.windowHeightA=15&rulers.windowHeightB=15&rulers.windowHeightC=15&rulers.windowWidthB=16&rulers.windowWidthC=16&measureStepNum=0"}>
                   <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                    <img className="w-full h-89.5 block max-w-full overflow-clip object-cover aspect-[auto_520/650] max-md:h-[26.8125rem] md:max-lg:h-[27.5625rem]" data-component="image" alt="Custom Café Curtain Hardware" height="650" src="/assets/cloned/images/c8ba3c694ce2.jpg" width="520" />
+                    <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] max-md:h-full md:max-lg:h-full" data-component="image" alt="Custom Café Curtain Hardware" height="650" src="/assets/cloned/images/c8ba3c694ce2.jpg" width="520" />
                   </div>
                   {" "}
                 </a>

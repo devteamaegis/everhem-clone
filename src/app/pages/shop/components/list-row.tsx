@@ -8,7 +8,7 @@ function cn(...parts: Array<string | false | null | undefined>) {
 }
 export default function ListRow({ d, styles }: { d: ListRowData; styles: ListRowStyles }) {
   return (
-    <li className={cn("list-item relative opacity-85 2xl:hidden", styles.className)}>
+    <li className={cn("list-item relative opacity-85", styles.className)}>
       {d.text}
     </li>
   );

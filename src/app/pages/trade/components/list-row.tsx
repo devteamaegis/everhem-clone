@@ -8,7 +8,7 @@ function cn(...parts: Array<string | false | null | undefined>) {
 }
 export default function ListRow({ d, styles }: { d: ListRowData; styles: ListRowStyles }) {
   return (
-    <li className={cn("border-t border-solid border-t-primary list-item py-[1.15rem] leading-6 max-md:py-3.5 md:max-lg:py-4 2xl:hidden", styles.className)}>
+    <li className={cn("border-t border-solid border-t-primary list-item py-[1.15rem] leading-6 max-md:py-3.5 md:max-lg:py-4", styles.className)}>
       {d.text}
     </li>
   );

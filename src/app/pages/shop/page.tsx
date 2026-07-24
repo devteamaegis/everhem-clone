@@ -316,7 +316,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/woven-woods?itemId=&windowName=&selections.mountPosition=inside-mount&selections.customControl=chain-loop&selections.fabric=WW-02-KH&selections.lining=unlined&selections.cordPosition=left&selections.shadeOperation=back&selections.windowWidth=inside-mount&selections.windowHeight=inside-mount&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Classic Woven Wood Shade" height="650" src="/assets/cloned/images/09aa9eaecd65.png" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Classic Woven Wood Shade" height="650" src="/assets/cloned/images/09aa9eaecd65.png" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -339,7 +339,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/woven-woods-oak-matchstick?itemId=&windowName=&selections.mountPosition=inside-mount&selections.customControl=chain-loop&selections.fabric=OAKMS&selections.lining=unlined&selections.cordPosition=right&selections.shadeOperation=back&selections.windowWidth=inside-mount&selections.windowHeight=inside-mount&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Oak Matchstick Shade" height="650" src="/assets/cloned/images/8ed7a26c62d8.png" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Oak Matchstick Shade" height="650" src="/assets/cloned/images/8ed7a26c62d8.png" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -367,7 +367,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/woven-woods?itemId=&windowName=&selections.mountPosition=inside-mount&selections.customControl=chain-loop&selections.fabric=WILTR&selections.lining=privacy&selections.cordPosition=right&selections.shadeOperation=back&selections.windowWidth=inside-mount&selections.windowHeight=inside-mount&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Sudare Woven Wood Shade" height="650" src="/assets/cloned/images/c7db423c4e14.png" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Sudare Woven Wood Shade" height="650" src="/assets/cloned/images/c7db423c4e14.png" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -393,7 +393,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/roller-shades?itemId=&windowName=&selections.mountPosition=outside-mount&selections.fabric=MPVPL&selections.customControl=chain-loop&selections.lining=privacy&selections.valanceHeight=6&selections.shadeOperation=back&selections.windowWidth=outside-mount&selections.windowHeight=outside-mount&selections.cordPosition=left&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Privacy Roller Shade" height="650" src="/assets/cloned/images/fe1bb183314e.png" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Privacy Roller Shade" height="650" src="/assets/cloned/images/fe1bb183314e.png" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -416,7 +416,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/roller-shades?itemId=&windowName=&selections.mountPosition=outside-mount&selections.fabric=MPVWH&selections.customControl=chain-loop&selections.lining=blackout&selections.valanceHeight=6&selections.shadeOperation=back&selections.windowWidth=outside-mount&selections.windowHeight=outside-mount&selections.cordPosition=left&rulers.mountdepth=2.5&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Blackout Roller Shade" height="650" src="/assets/cloned/images/c0f38cff8c3f.png" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Blackout Roller Shade" height="650" src="/assets/cloned/images/c0f38cff8c3f.png" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -504,7 +504,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/drapery-by-jake-arnold?itemId=&windowName=&selections.package=drapery-hardware&selections.rodSize=3/4&selections.fabric=JCTRN&selections.pleat=jakePleat&selections.sheers=none&selections.lining=unlined&selections.hardwareStyle=curved-return&selections.hardwareFinish=oil-rubbed-bronze&selections.windowWidth=width&selections.stackWidth=stackWidth&selections.windowHeight=height&selections.mountingHeight=mountHeight&selections.panels=double&selections.draperyPuddle=1&rulers.windowWidthA=72&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Jake Pleat Drapery and Hardware" height="650" src="/assets/cloned/images/ab2208950dfc.jpg" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Jake Pleat Drapery and Hardware" height="650" src="/assets/cloned/images/ab2208950dfc.jpg" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -534,7 +534,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/drapery-by-jake-arnold?itemId=&windowName=&selections.package=drapery-only&selections.rodSize=3/4&selections.fabric=JHAZE&selections.pleat=jakePleat&selections.sheers=none&selections.lining=unlined&selections.hardwareStyle=curved-return&selections.hardwareFinish=oil-rubbed-bronze&selections.windowWidth=width&selections.stackWidth=stackWidth&selections.windowHeight=height&selections.mountingHeight=mountHeight&selections.panels=double&selections.draperyPuddle=1&rulers.windowWidthA=72&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Jake Pleat Drapery" height="650" src="/assets/cloned/images/2357139066a4.jpg" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Jake Pleat Drapery" height="650" src="/assets/cloned/images/2357139066a4.jpg" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -563,7 +563,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href="https://everhem.com/pages/drapery">
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Custom Drapery Hardware" height="650" src="/assets/cloned/images/52f1fc990250.webp" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Custom Drapery Hardware" height="650" src="/assets/cloned/images/52f1fc990250.webp" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -648,7 +648,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/cafe-curtains?itemId=&windowName=&selections.package=hardware-only&selections.fabric=BOSHR&selections.pleat=pinch&selections.hardwareFinish=matte-black&selections.mountPosition=inside-mount&selections.rodSize=0.375&selections.panels=double&selections.windowHeight=inside-mount-width&selections.windowWidth=inside-mount-width&rulers.depth=1&rulers.windowWidthA=16&rulers.windowHeightA=15&rulers.windowHeightB=15&rulers.windowHeightC=15&rulers.windowWidthB=16&rulers.windowWidthC=16&measureStepNum=0"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Custom café curtain hardware" height="650" src="/assets/cloned/images/c8ba3c694ce2.jpg" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Custom café curtain hardware" height="650" src="/assets/cloned/images/c8ba3c694ce2.jpg" width="520" />
                     </div>
                     {" "}
                   </a>
@@ -748,7 +748,7 @@ export default function Page() {
                 <div className="flex flex-col shrink-0">
                   <a className="block cursor-pointer" data-component="link" aria-hidden="true" href={"https://everhem.com/pages/fixed-curtains?itemId=&windowName=&selections.package=drapery-only&selections.fabric=PBSHR&selections.lining=unlined&selections.style=full&selections.hardwareFinish=oil-rubbed-bronze&selections.mountPosition=inside-mount&selections.rodSize=0.375&selections.panels=single&selections.windowHeight=inside-mount-width&selections.windowWidth=inside-mount-width&rulers.depth=1&rulers.windowWidthA=12&rulers.windowHeightA=16&rulers.windowHeightB=16&rulers.windowHeightC=16&rulers.windowWidthB=12&rulers.windowWidthC=12&measureStepNum=1"}>
                     <div className="block relative mb-3 overflow-hidden bg-accent aspect-[0.8]">
-                      <img className="w-full h-100 block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-75" data-component="image" alt="Custom Fixed Curtains Hardware" height="650" src="/assets/cloned/images/5e3717ef48f8.png" width="520" />
+                      <img className="w-full h-full block max-w-full overflow-clip object-cover aspect-[auto_520/650] pointer-events-none max-md:h-full" data-component="image" alt="Custom Fixed Curtains Hardware" height="650" src="/assets/cloned/images/5e3717ef48f8.png" width="520" />
                     </div>
                     {" "}
                   </a>

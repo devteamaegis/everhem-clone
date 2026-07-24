@@ -9,9 +9,9 @@ function cn(...parts: Array<string | false | null | undefined>) {
 }
 export default function Tile2({ d, styles }: { d: Tile2Data; styles: Tile2Styles }) {
   return (
-    <p className={cn("block [overflow-wrap:break-word] 2xl:hidden", styles.className)}>
+    <p className={cn("block [overflow-wrap:break-word]", styles.className)}>
       {d.description}
-      <a className="inline text-foreground underline cursor-pointer 2xl:hidden" data-component="link" href="mailto:hello@everhem.com">
+      <a className="inline text-foreground underline cursor-pointer" data-component="link" href="mailto:hello@everhem.com">
         hello@everhem.com
       </a>
       {d.description2}

@@ -9,7 +9,7 @@ function cn(...parts: Array<string | false | null | undefined>) {
 }
 export default function NavLink({ d, styles }: { d: NavLinkData; styles: NavLinkStyles }) {
   return (
-    <a className={cn("border border-solid block py-2 px-4 text-xs leading-[1.1875rem] tracking-[0.48px] uppercase cursor-pointer max-md:shrink-0 2xl:hidden", styles.className)} data-component="link" href={d.href}>
+    <a className={cn("border border-solid block py-2 px-4 text-xs leading-[1.1875rem] tracking-[0.48px] uppercase cursor-pointer max-md:shrink-0", styles.className)} data-component="link" href={d.href}>
       {d.label}
     </a>
   );
